@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  /*overflow: hidden;*/
+  color: #666;
+
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+body {
+  background: #eee;
+  font-size: 8pt;
+  width: 100%;
+  height: 100%;
+}
+table {
+  border-collapse: collapse;
+}
+td, hr {
+  border: 1px solid #fafafa;
+}
+
+h2 {
+  padding: 12px;
+  font-size: 16pt;
+  line-height: 2em;
+}
+
+hr {
+  margin: 0px;
+  padding: 0px;
+}
+button {
+  padding: 4px 40px 4px 40px;
+  background: #fefefe;
+  border-radius: 4px;
+  border-style: none;
+}
+
+.accentcolor-background, .menu {
+  /*background:#F58788;*/
+  background:#8887F5;
+}
+
+.darkcolor-line, .menu {
+  border-color: #7877e5;
+}
+
+.inbox {
+  display: inline-block;
+  width: 100px;
+  vertical-align: top;
+}
+
+.main {
+  box-sizing: border-box;
+  position: absolute;
+  margin: 32px;
+  top: 0px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  /*margin-top: 64px;*/
+  width: 742px;
+  height: 91%;
+  vertical-align: top;
+  background: #F9F7F8;
+
+  /*border-bottom-style: solid;
+  border-bottom-color: #e57778;
+  border-bottom-width: 3px;*/
+}
+
+
+.menu {
+  position: absolute;
+  width: 120px;
+  height: 100%;
+  font-weight: bold;
+  /*background:#F58788;*/
+
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+
+  box-shadow: 2px 0px 1px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+.menu div {
+  color: rgba(255, 255, 255, 0.8);
+  height: 44px;
+  line-height: 44px;
+  padding: 0px 12px 0px 12px;
+}
+
+.menu li {
+  padding: 6px 12px;
+  line-height: 2em;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.first-fragment, .second-fragment {
+  width: 311px;
+  height: 100%;
+  position: absolute;
+  vertical-align: top;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  background: #F9F7F8;
+  z-index: 0;
+}
+
+.first-fragment {
+  left: 120px;
+}
+
+.second-fragment {
+  /*left: 500px;*/
+  left: 431px;
+}
+
+.first-header {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 311px;
+  height: 44px;
+  background: #fafafa;
+  z-index: 1;
+}
+
+.oneday {
+  /*padding: 4px;*/
+  width: 100%;
+  /*font-size: 13pt;*/
+}
+.today {
+  background: #eef;
+}
+
+.time {
+  color: #444;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 0.62em;
+  vertical-align: top;
+  margin-top: 4px;
+}
+
+.past, .past>.time, .past>.addbutton {
+  color: #aaa;
+}
+
+.daytab {
+  padding: 0px;
+  display: inline-block;
+  width: 41px;
+  text-align: center;
+  line-height: 4em;
+}
+
+.first-content {
+  position: absolute;
+  top:44px;
+  left: 0px;
+  width: 311px;
+  height: 92%;
+  /*min-height: 640px;*/
+  /*background: #ff0;*/
+  z-index: 10;
+  overflow-y: scroll;
+}
+
+ul.list li {
+  position: relative;
+  padding: 8px 12px 8px 12px;
+  font-size: 10pt;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #eee;
+  overflow: visible;
+}
+
+ul.list li:first-child {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #eee;
+}
+
+.selected-day {
+  background: #F9F7F8;
+}
+.selected {
+  background: #fafafa;
+}
+.pin {
+  position: absolute;
+  top: 0px;
+  right: -10px;
+  z-index: 100;
+}
+</style>
+<div class="main">
+  <div class="menu">
+    <div>MENU</div>
+    <ul>
+      <li>INBOX</li>
+      <li style="background: #F9F7F8; color: #888">DAY</li>
+      <li>WEEK</li>
+      <li>MONTH</li>
+    </ul>
+  </div>
+  <div class="first-fragment">
+    <div class="first-header">
+      <div class="daytab">月</div>
+      <div class="daytab">火</div>
+      <div class="daytab">水</div>
+      <div class="daytab selected-day">木</div>
+      <div class="daytab">金</div>
+      <div class="daytab">土</div>
+      <div class="daytab">日</div>
+    </div>
+    <div class="first-content">
+      <div class="oneday y2016 m5 d5">
+        <h2 style="font-size: 24pt;">5<table style="display:inline-block; vertical-align:middle;"><tr><td style="font-size: 10pt; line-height: 12px">MAY</td></tr><tr><td style="font-size: 10pt; line-height: 12px">2016</td></tr></table></h2>
+
+
+      <h2>SCHEDULE</h2>
+      <ul class="list">
+        <li><div class="time">10:00</div> MTG</li>
+        <li><div class="time">11:00</div> MTG2</li>
+      </ul>
+      <button>+</button>
+
+      <h2>TODO</h2>
+      <ul class="list">
+        <li>TASK1</li>
+        <li>TASK2</li>
+        <li class="selected">TASK1</li>
+        <li>TASK2</li>
+        <li>TASK1</li>
+        <li>TASK2</li>
+        <li>TASK1</li>
+        <li>TASK2</li>
+      </ul>
+      <button>+</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="second-fragment">
+    <h2>TASK1</h2>
+    <div style="padding: 12px; font-size: 11pt;">
+      <p>description</p>
+      <br>
+      <p>予定日: <button>2016-05-05</button></p>
+    </div>
+  </div>
+
+  <!-- <div class="inbox">inbox<br>hoge</div> -->
+
+</div>
+
+
+
+
+<script src="./js/md5.js"></script>
+<script src="./js/rtm.js"></script>
+<script src="./js/setupRtm.js"></script>
+<script src="./js/rtmconfig.js"></script>
+
+<script>
+var today = new Date();
+var firstDate = new Date("2016-04-25").getTime();
+//
+// var html = '';
+// for(var w = 0; w < 3; w++) {
+//   html += '<tr>';
+//   for(var d = 0; d < 7; d++) {
+//     var date = new Date(firstDate);
+//
+//     var relativeDay;
+//     if(today.getDate() == date.getDate()) {
+//       relativeDay = 'today';
+//     } else if(date.getTime() < today.getTime()) {
+//       relativeDay = 'past';
+//     } else {
+//       relativeDay = 'future';
+//     }
+//     html += `<td>`;
+//     html += `<div class="oneday y${date.getFullYear()} m${date.getMonth() + 1} d${date.getDate()} ${relativeDay}">`;
+//     html += `${date.getDate()}`;
+//     html += `<hr>`;
+//     html += `予定<br><div class="time">10:00</div> MTG<br><div class="time">11:00</div> MTG2<br>`;
+//     html += `<button>+</button>`;
+//     html += `<hr>`;
+//     html += `TODO<br>TASK1<br>TASK2<br>`;
+//     html += `<button>+</button>`;
+//     html += `</div>`;
+//     html += `</td>`;
+//     firstDate += 24 * 60 * 60 * 1000;
+//   }
+//   html += '</tr>';
+// }
+// var tbody = document.querySelector('tbody');
+// tbody.innerHTML = html;
+
+
+
+// setupRtm(API_KEY, API_SECRET, (rtm) => {
+//   rtm.get('rtm.lists.getList', function(resp){
+//     if(resp.rsp.stat != 'ok') {
+//       showRtmErrorAlert(resp);
+//       return;
+//     }
+//     allTaskListId = resp.rsp.lists.list.filter((v) => v.name == 'すべてのタスク')[0].id;
+//     rtm.get('rtm.tasks.getList', {list_id: allTaskListId/*, filter: 'status:incomplete'*/}, function(resp){
+//       resp.rsp.tasks.list.forEach((task) => {
+//         console.log(task.taskseries);
+//       });
+//     });
+//   });
+// });
+
+</script>
